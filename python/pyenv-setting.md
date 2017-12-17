@@ -1,4 +1,4 @@
-#pyenv-setting
+# pyenv-setting
 
 파이썬 개발환경 설정
 * pyenv - 로컬 파이썬 버전 관리
