@@ -10,7 +10,7 @@ $ xcode-select --install
 /Library/Developer/CommandLineTools/
 ```
 
-설치되는 명령어 종류
+설치되는 명령어 종류 `Xcode 7.3 버전 기준`
 ```
 ∙ ar
 ∙ as
