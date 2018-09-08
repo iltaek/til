@@ -28,4 +28,5 @@
 * java.util.Observable 을 비롯해 `Observer Pattern` 을 구현한 것은 여럿 있다.
 * java.util.Observable 은 `class` 이다. 필요하면 `interface`를 직접 구현하여 사용하자.
 
-> 본 저장소의 코드는 'Head First Design Patterns'의 내용을 기반으로 하고 있다.
+> 본 저장소의 코드는 'Head First Design Patterns'의 실습 코드이다.
+> 본 저장소의 코드는 JDK 9.0 기반으로 작성되었다.
