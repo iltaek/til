@@ -1,4 +1,4 @@
-package DecoratorPattern;
+package pattern.decorator;
 
 public class HouseBlend extends Beverage {
     public HouseBlend() {

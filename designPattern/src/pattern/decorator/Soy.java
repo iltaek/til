@@ -1,6 +1,6 @@
-package DecoratorPattern;
+package pattern.decorator;
 
-public class Whip extends CondimentDecorator {
+public class Soy extends CondimentDecorator {
     Beverage beverage;
 
     @Override
@@ -8,24 +8,24 @@ public class Whip extends CondimentDecorator {
         return beverage.getSize();
     }
 
-    public Whip(Beverage beverage) {
+    public Soy(Beverage beverage) {
         this.beverage = beverage;
     }
 
     @Override
     public String getDescription() {
-        return beverage.getDescription() + ", Whip";
+        return beverage.getDescription() + ", Soy";
     }
 
     @Override
     public double cost() {
         double cost = beverage.cost();
         if (getSize() == SIZES.TALL) {
-            cost += .05;
-        } else if (getSize() == SIZES.GRANDE) {
             cost += .10;
+        } else if (getSize() == SIZES.GRANDE) {
+            cost += .20;
         } else if (getSize() == SIZES.VENTI) {
-            cost += .15;
+            cost += .30;
         }
         return cost;
     }

@@ -1,6 +1,6 @@
-package DecoratorPattern;
+package pattern.decorator;
 
-public class SteamMilk extends CondimentDecorator {
+public class Whip extends CondimentDecorator {
     Beverage beverage;
 
     @Override
@@ -8,24 +8,24 @@ public class SteamMilk extends CondimentDecorator {
         return beverage.getSize();
     }
 
-    public SteamMilk(Beverage beverage) {
+    public Whip(Beverage beverage) {
         this.beverage = beverage;
     }
 
     @Override
     public String getDescription() {
-        return beverage.getDescription() + ", SteamMilk";
+        return beverage.getDescription() + ", Whip";
     }
 
     @Override
     public double cost() {
         double cost = beverage.cost();
         if (getSize() == SIZES.TALL) {
-            cost += .10;
+            cost += .05;
         } else if (getSize() == SIZES.GRANDE) {
-            cost += .15;
+            cost += .10;
         } else if (getSize() == SIZES.VENTI) {
-            cost += .20;
+            cost += .15;
         }
         return cost;
     }

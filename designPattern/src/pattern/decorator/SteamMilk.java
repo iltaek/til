@@ -1,6 +1,6 @@
-package DecoratorPattern;
+package pattern.decorator;
 
-public class Soy extends CondimentDecorator {
+public class SteamMilk extends CondimentDecorator {
     Beverage beverage;
 
     @Override
@@ -8,13 +8,13 @@ public class Soy extends CondimentDecorator {
         return beverage.getSize();
     }
 
-    public Soy(Beverage beverage) {
+    public SteamMilk(Beverage beverage) {
         this.beverage = beverage;
     }
 
     @Override
     public String getDescription() {
-        return beverage.getDescription() + ", Soy";
+        return beverage.getDescription() + ", SteamMilk";
     }
 
     @Override
@@ -23,9 +23,9 @@ public class Soy extends CondimentDecorator {
         if (getSize() == SIZES.TALL) {
             cost += .10;
         } else if (getSize() == SIZES.GRANDE) {
-            cost += .20;
+            cost += .15;
         } else if (getSize() == SIZES.VENTI) {
-            cost += .30;
+            cost += .20;
         }
         return cost;
     }

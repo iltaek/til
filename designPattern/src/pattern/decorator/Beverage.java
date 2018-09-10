@@ -1,4 +1,4 @@
-package DecoratorPattern;
+package pattern.decorator;
 
 public abstract class Beverage {
     String description = "no name";
