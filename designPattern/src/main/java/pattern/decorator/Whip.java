@@ -1,32 +1,26 @@
 package pattern.decorator;
 
-public class Whip extends CondimentDecorator {
-    Beverage beverage;
-
-    @Override
-    public SIZES getSize() {
-        return beverage.getSize();
-    }
-
-    public Whip(Beverage beverage) {
-        this.beverage = beverage;
+public class Whip extends CondimentBeverage {
+    public Whip(Beverage original) {
+        super(original);
     }
 
     @Override
-    public String getDescription() {
-        return beverage.getDescription() + ", Whip";
-    }
-
-    @Override
-    public double cost() {
-        double cost = beverage.cost();
-        if (getSize() == SIZES.TALL) {
-            cost += .05;
-        } else if (getSize() == SIZES.GRANDE) {
-            cost += .10;
-        } else if (getSize() == SIZES.VENTI) {
-            cost += .15;
+    protected double additionalCost() {
+        if (getSize() == Size.TALL) {
+            return .05;
         }
-        return cost;
+        if (getSize() == Size.GRANDE) {
+            return .10;
+        }
+        if (getSize() == Size.VENTI) {
+            return .15;
+        }
+        throw new IllegalStateException();
+    }
+
+    @Override
+    protected String additionalDescription() {
+        return ", Whip";
     }
 }

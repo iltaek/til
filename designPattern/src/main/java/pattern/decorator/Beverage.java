@@ -1,15 +1,16 @@
 package pattern.decorator;
 
 public abstract class Beverage {
-    String description = "no name";
-    public enum SIZES {TALL, GRANDE, VENTI};
-    SIZES size = SIZES.TALL;
 
-    public void setSize(SIZES size) {
+    private final String description;
+    private final Size size;
+
+    public Beverage(String description, Size size) {
+        this.description = description;
         this.size = size;
     }
 
-    public SIZES getSize() {
+    public Size getSize() {
         return this.size;
     }
 
@@ -18,4 +19,10 @@ public abstract class Beverage {
     }
 
     public abstract double cost();
+
+    public enum Size {
+        TALL,
+        GRANDE,
+        VENTI
+    }
 }

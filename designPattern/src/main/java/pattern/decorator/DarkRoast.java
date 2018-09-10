@@ -1,8 +1,11 @@
 package pattern.decorator;
 
-public class DarkRoast extends Beverage {
-    public DarkRoast() {
-        description = "Dark roast coffee";
+public abstract class DarkRoast extends Beverage {
+
+    private static final String DESCRIPTION = "Dark roast coffee";
+
+    public DarkRoast(Size size) {
+        super(DESCRIPTION, size);
     }
 
     @Override
@@ -12,14 +15,9 @@ public class DarkRoast extends Beverage {
 
     @Override
     public double cost() {
-        double cost = .99;
-        if (this.getSize() == SIZES.TALL) {
-            cost += 0;
-        } else if (this.getSize() == SIZES.GRANDE) {
-            cost += .19;
-        } else if (this.getSize() == SIZES.VENTI) {
-            cost += .29;
-        }
-        return cost;
+        double baseCost = .99;
+        return baseCost + additionalCost();
     }
+
+    protected abstract double additionalCost();
 }

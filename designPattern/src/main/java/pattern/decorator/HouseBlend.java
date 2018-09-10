@@ -1,8 +1,11 @@
 package pattern.decorator;
 
-public class HouseBlend extends Beverage {
-    public HouseBlend() {
-        description = "Hous blended coffee";
+public abstract class HouseBlend extends Beverage {
+
+    private static final String DESCRIPTION = "Hous blended coffee";
+
+    public HouseBlend(Size size) {
+        super(DESCRIPTION, size);
     }
 
     @Override
@@ -12,14 +15,9 @@ public class HouseBlend extends Beverage {
 
     @Override
     public double cost() {
-        double cost = .89;
-        if (this.getSize() == SIZES.TALL) {
-            cost += 0;
-        } else if (this.getSize() == SIZES.GRANDE) {
-            cost += .19;
-        } else if (this.getSize() == SIZES.VENTI) {
-            cost += .29;
-        }
-        return cost;
+        double baseCost = .89;
+        return baseCost + additionalCost();
     }
+
+    public abstract double additionalCost();
 }

@@ -1,32 +1,27 @@
 package pattern.decorator;
 
-public class Soy extends CondimentDecorator {
-    Beverage beverage;
+public class Soy extends CondimentBeverage {
 
-    @Override
-    public SIZES getSize() {
-        return beverage.getSize();
-    }
-
-    public Soy(Beverage beverage) {
-        this.beverage = beverage;
+    public Soy(Beverage original) {
+        super(original);
     }
 
     @Override
-    public String getDescription() {
-        return beverage.getDescription() + ", Soy";
-    }
-
-    @Override
-    public double cost() {
-        double cost = beverage.cost();
-        if (getSize() == SIZES.TALL) {
-            cost += .10;
-        } else if (getSize() == SIZES.GRANDE) {
-            cost += .20;
-        } else if (getSize() == SIZES.VENTI) {
-            cost += .30;
+    protected double additionalCost() {
+        if (getSize() == Size.TALL) {
+            return .10;
         }
-        return cost;
+        if (getSize() == Size.GRANDE) {
+            return .20;
+        }
+        if (getSize() == Size.VENTI) {
+            return .30;
+        }
+        throw new IllegalStateException();
+    }
+
+    @Override
+    protected String additionalDescription() {
+        return ", Soy";
     }
 }

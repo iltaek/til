@@ -1,32 +1,27 @@
 package pattern.decorator;
 
-public class SteamMilk extends CondimentDecorator {
-    Beverage beverage;
+public class SteamMilk extends CondimentBeverage {
 
-    @Override
-    public SIZES getSize() {
-        return beverage.getSize();
-    }
-
-    public SteamMilk(Beverage beverage) {
-        this.beverage = beverage;
+    public SteamMilk(Beverage original) {
+        super(original);
     }
 
     @Override
-    public String getDescription() {
-        return beverage.getDescription() + ", SteamMilk";
-    }
-
-    @Override
-    public double cost() {
-        double cost = beverage.cost();
-        if (getSize() == SIZES.TALL) {
-            cost += .10;
-        } else if (getSize() == SIZES.GRANDE) {
-            cost += .15;
-        } else if (getSize() == SIZES.VENTI) {
-            cost += .20;
+    protected double additionalCost() {
+        if (getSize() == Size.TALL) {
+            return .10;
         }
-        return cost;
+        if (getSize() == Size.GRANDE) {
+            return .15;
+        }
+        if (getSize() == Size.VENTI) {
+            return .20;
+        }
+        throw new IllegalStateException();
+    }
+
+    @Override
+    protected String additionalDescription() {
+        return ", Steam";
     }
 }

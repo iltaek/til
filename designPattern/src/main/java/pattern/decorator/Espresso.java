@@ -1,8 +1,11 @@
 package pattern.decorator;
 
-public class Espresso extends Beverage {
-    public Espresso() {
-        description = "Espresso";
+public abstract class Espresso extends Beverage {
+
+    private static final String DESCRIPTION = "Espresso";
+
+    public Espresso(Size size) {
+        super(DESCRIPTION, size);
     }
 
     @Override
@@ -12,14 +15,9 @@ public class Espresso extends Beverage {
 
     @Override
     public double cost() {
-        double cost = 1.99;
-        if (this.getSize() == SIZES.TALL) {
-            cost += 0;
-        } else if (this.getSize() == SIZES.GRANDE) {
-            cost += .19;
-        } else if (this.getSize() == SIZES.VENTI) {
-            cost += .29;
-        }
-        return cost;
+        double baseCost = 1.99;
+        return baseCost + additionalCost();
     }
+
+    protected abstract double additionalCost();
 }
