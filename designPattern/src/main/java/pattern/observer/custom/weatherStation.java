@@ -1,4 +1,4 @@
-package ObserverPattern.custom;
+package pattern.observer.custom;
 
 public class weatherStation {
     public static void main(String[] args) {

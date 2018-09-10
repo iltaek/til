@@ -1,4 +1,4 @@
-package ObserverPattern.javautil;
+package pattern.observer.javautil;
 
 public class weatherStation {
     public static void main(String[] args) {

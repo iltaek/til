@@ -1,4 +1,4 @@
-package ObserverPattern.custom;
+package pattern.observer.custom;
 
 public interface DisplayElement {
     public void display();

@@ -1,4 +1,4 @@
-package StrategyPattern;
+package pattern.strategy;
 
 public class MuteQuack implements QuackBehavior {
     @Override
