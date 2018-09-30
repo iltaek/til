@@ -4,3 +4,7 @@ designPattern/\.idea/
 designPattern/out/
 
 designPattern/designPattern\.iml
+
+\.DS_Store
+
+\.idea/
