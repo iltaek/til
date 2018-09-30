@@ -4,19 +4,15 @@ import java.util.ArrayList;
 
 public abstract class Pizza {
     protected String name;
-    protected String dough;
-    protected String sauce;
-    protected ArrayList toppings = new ArrayList();
+    protected Dough dough;
+    protected Sauce sauce;
+    protected Veggies veggies[];
+    protected Cheese cheese;
+    protected Pepperoni pepperoni;
+    protected Clams clam;
 
-    public void prepare() {
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings: ");
-        for (int i = 0; i < toppings.size(); i++) {
-            System.out.println("    " + toppings.get(i));
-        }
-    }
+    abstract void prepare();
+
     public void bake() {
         System.out.println("Bake for 25 minutes at 350");
     }
@@ -29,5 +25,9 @@ public abstract class Pizza {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
